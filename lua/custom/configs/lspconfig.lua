@@ -5,6 +5,7 @@ local capabilities = config.capabilities
 local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
+-- Go LSP configuration
 lspconfig.gopls.setup ({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -23,8 +24,22 @@ lspconfig.gopls.setup ({
 })
 
 
+-- python LSP configuration
 lspconfig.pyright.setup ({
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {"python"},
 })
+
+
+
+-- This is a general table to add default lsp, below is a for loop 
+-- that configures default lsp for all the strings in servers table
+local servers = { "html", "cssls", "tsserver", "clangd", "marksman" }
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end

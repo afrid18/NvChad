@@ -6,6 +6,7 @@ local plugins = {
         "black",
         "flake8",
         "gopls",
+        "marksman",
         "mypy",
         "pyright",
         "ruff",
