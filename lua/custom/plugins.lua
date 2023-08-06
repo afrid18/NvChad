@@ -3,7 +3,12 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "black",
+        "flake8",
         "gopls",
+        "mypy",
+        "pyright",
+        "ruff",
       },
     },
   },
@@ -31,7 +36,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
+    ft = {"go", "python"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
