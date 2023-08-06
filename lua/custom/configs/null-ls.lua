@@ -20,6 +20,9 @@ local opts = {
 
     -- C and CPP auto formatting
     null_ls.builtins.formatting.clang_format,
+
+    -- HTML, CSS and markdown formatting using prettier
+    null_ls.builtins.formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
   },
 
   -- Auto Group commands
