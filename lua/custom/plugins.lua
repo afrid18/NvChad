@@ -86,7 +86,7 @@ local plugins = {
 
   {
     "windwp/nvim-ts-autotag",
-    lazy = false,
+    ft = overrides.nvimtsautotag.ft,
     config = function()
       require("nvim-ts-autotag").setup()
     end,
