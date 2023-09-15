@@ -30,9 +30,17 @@ lspconfig.pyright.setup {
   filetypes = { "python" },
 }
 
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
 -- This is a general table to add default lsp, below is a for loop
 -- that configures default lsp for all the strings in servers table
-local servers = { "html", "cssls", "tsserver", "clangd", "marksman" }
+local servers = { "html", "cssls", "tsserver", "marksman" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
